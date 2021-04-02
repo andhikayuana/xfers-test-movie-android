@@ -26,6 +26,18 @@ object Deps {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val viewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val navigationFragment =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+    const val swipeRefresh =
+        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
+    const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+
 
     const val junit = "junit:junit:${Versions.junit}"
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
@@ -47,8 +59,14 @@ object Versions {
     const val appCompat = "1.2.0"
     const val coreKtx = "1.3.2"
     const val constraintLayout = "2.0.4"
+    const val lifecycle = "2.3.1"
+    const val navigation = "2.3.4"
+    const val recyclerView = "1.1.0"
+    const val swipeRefresh = "1.1.0"
     const val retrofit = "2.9.0"
     const val gson = "2.8.6"
+    const val coil = "1.1.1"
+    const val okHttp = "4.9.0"
 
     const val junit = "4.13.2"
     const val junitExt = "1.1.2"

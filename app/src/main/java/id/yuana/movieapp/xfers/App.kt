@@ -1,11 +1,7 @@
 package id.yuana.movieapp.xfers
 
 import android.app.Application
-import android.util.Log
 import id.yuana.movieapp.xfers.core.MovieCore
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class App : Application() {
 
@@ -16,13 +12,6 @@ class App : Application() {
             baseUrl = BuildConfig.MOVIE_BASE_URL,
             apiKey = BuildConfig.MOVIE_API_KEY,
         )
-
-        GlobalScope.launch(Dispatchers.Main) {
-            val results = MovieCore.instance.component.repository.getMovies("superman", 1)
-
-            Log.d("YUANA", results.toString())
-        }
-
     }
 }
 

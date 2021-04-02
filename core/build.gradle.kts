@@ -41,8 +41,6 @@ dependencies {
     implementation(Deps.kotlinStd)
     implementation(Deps.coroutines)
     implementation(Deps.coreKtx)
-//    implementation(Deps.appCompat)
-//    implementation(Deps.material)
     implementation(Deps.retrofit)
     implementation(Deps.retrofitGson)
     implementation(Deps.gson)

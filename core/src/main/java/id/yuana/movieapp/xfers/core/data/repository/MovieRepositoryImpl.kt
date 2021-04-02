@@ -1,6 +1,7 @@
 package id.yuana.movieapp.xfers.core.data.repository
 
 import id.yuana.movieapp.xfers.core.data.model.Movie
+import id.yuana.movieapp.xfers.core.data.model.Resource
 import id.yuana.movieapp.xfers.core.data.remote.MovieService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -8,9 +9,22 @@ import kotlinx.coroutines.withContext
 class MovieRepositoryImpl(private val api: MovieService, private val apiKey: String) :
     MovieRepository {
 
-    override suspend fun getMovies(query: String, page: Int): List<Movie> {
+    //TODO perhaps can change to response model
+    override suspend fun getMovies(query: String, page: Int): Resource<List<Movie>> {
         return withContext(Dispatchers.IO) {
-            api.getMovies(apiKey = apiKey, query = query, page = page).results
+            Resource.loading(data = null)
+            try {
+                Resource.success(
+                    data = api.getMovies(
+                        apiKey = apiKey,
+                        query = query,
+                        page = page
+                    ).results
+                )
+            } catch (e: Exception) {
+                Resource.error(data = null, message = e.message ?: "Oops, something went wrong")
+            }
+
         }
     }
 

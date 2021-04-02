@@ -3,6 +3,8 @@ plugins {
     kotlin(Plugins.android)
     kotlin(Plugins.androidExt)
     kotlin(Plugins.kotlinKapt)
+    id("androidx.navigation.safeargs")
+    id("kotlin-android")
 }
 
 android {
@@ -42,7 +44,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions.apply {
+    kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
@@ -55,7 +57,16 @@ dependencies {
     implementation(Deps.appCompat)
     implementation(Deps.material)
     implementation(Deps.constraintLayout)
+    implementation(Deps.viewModel)
+    implementation(Deps.liveData)
+    implementation(Deps.navigationFragment)
+    implementation(Deps.navigationUi)
+    implementation(Deps.recyclerView)
+    implementation(Deps.swipeRefresh)
+    implementation(Deps.coil)
+    implementation(Deps.okHttp)
     implementation(project(":core"))
+
 
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.junitExt)
