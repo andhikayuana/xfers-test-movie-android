@@ -1,7 +1,8 @@
-package id.yuana.movieapp.xfers
+package id.yuana.movieapp.xfers.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import id.yuana.movieapp.xfers.R
 
 /**
  * @author andhikayuana

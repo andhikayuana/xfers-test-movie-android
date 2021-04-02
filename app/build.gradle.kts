@@ -29,9 +29,11 @@ android {
         }
 
         val baseUrl: String by project
+        val apiKey: String by project
 
         buildTypes.onEach {
-            it.buildConfigField("String", "BASE_URL", baseUrl)
+            it.buildConfigField("String", "MOVIE_BASE_URL", baseUrl)
+            it.buildConfigField("String", "MOVIE_API_KEY", apiKey)
         }
     }
 
@@ -48,10 +50,12 @@ android {
 
 dependencies {
     implementation(Deps.kotlinStd)
+    implementation(Deps.coroutines)
     implementation(Deps.coreKtx)
     implementation(Deps.appCompat)
     implementation(Deps.material)
     implementation(Deps.constraintLayout)
+    implementation(project(":core"))
 
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.junitExt)
