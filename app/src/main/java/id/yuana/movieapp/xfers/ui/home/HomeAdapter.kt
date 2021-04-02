@@ -43,7 +43,7 @@ class HomeAdapter(private val onClickItemMovie: (movie: Movie) -> Unit) :
 
         fun bind(movie: Movie) {
             itemView.apply {
-                tvLabel.text = movie.title
+                tvTitle.text = movie.title
                 tvReleaseOn.text = movie.getReleaseOn()
                 tvOverview.text = movie.overview
                 ivPoster.load(movie.getPosterUrl()) {

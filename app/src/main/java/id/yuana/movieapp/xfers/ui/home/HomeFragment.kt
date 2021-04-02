@@ -1,16 +1,17 @@
 package id.yuana.movieapp.xfers.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import id.yuana.movieapp.xfers.R
 import id.yuana.movieapp.xfers.core.data.model.Status
+import id.yuana.movieapp.xfers.ui.detail.DetailFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -30,8 +31,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupUI() {
         homeAdapter = HomeAdapter {
-            //todo
-            Log.d("YUANA", it.toString())
+            findNavController().navigate(
+                R.id.action_homeFragment_to_detailFragment,
+                DetailFragment.createBundle(it)
+            )
         }
         swipeRefresh.setColorSchemeColors(
             ResourcesCompat.getColor(

@@ -2,6 +2,7 @@ package id.yuana.movieapp.xfers.core.data.model
 
 import android.annotation.SuppressLint
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.text.SimpleDateFormat
 
 data class Movie(
@@ -19,12 +20,17 @@ data class Movie(
     @SerializedName("video") val video: Boolean,
     @SerializedName("vote_average") val vote_average: Double,
     @SerializedName("vote_count") val vote_count: Int
-) {
+) : Serializable {
+
+    companion object {
+        const val imageUrl = "http://image.tmdb.org/t/p/"
+    }
 
     fun getPosterUrl(width: String = "w185"): String =
-        "http://image.tmdb.org/t/p/${width}${poster_path}"
+        "${imageUrl}${width}${poster_path}"
 
-    //    2015-01-19
+    fun getBackdropUrl(width: String = "w500"): String = "${imageUrl}${width}${backdrop_path}"
+
     @SuppressLint("SimpleDateFormat")
     fun getReleaseOn(): String {
         val date = SimpleDateFormat("yyyy-MM-dd").parse(release_date)
