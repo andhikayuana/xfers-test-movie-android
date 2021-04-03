@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import id.yuana.movieapp.xfers.core.MovieCore
+import id.yuana.movieapp.xfers.core.data.model.GetMoviesResponse
 import id.yuana.movieapp.xfers.core.data.model.Movie
 import id.yuana.movieapp.xfers.core.data.model.Resource
 import id.yuana.movieapp.xfers.core.data.repository.MovieRepositoryImpl
@@ -21,15 +22,18 @@ class HomeViewModel : ViewModel() {
 
     private val repository: MovieRepositoryImpl = MovieCore.instance.component.repository
 
-    val movies: MutableLiveData<Resource<List<Movie>>> by lazy {
-        MutableLiveData<Resource<List<Movie>>>(Resource.loading(data = null))
+    val fetchMovies: MutableLiveData<Resource<GetMoviesResponse>> by lazy {
+        MutableLiveData<Resource<GetMoviesResponse>>(Resource.loading(data = null))
     }
 
-    val query: MutableLiveData<String> by lazy {
-        MutableLiveData<String>(DEFAULT_QUERY)
+    val movies: MutableLiveData<List<Movie>> by lazy {
+        MutableLiveData<List<Movie>>(mutableListOf())
     }
 
     val currentPage: MutableLiveData<Int> by lazy {
+        MutableLiveData<Int>(DEFAULT_PAGE)
+    }
+    val totalPage: MutableLiveData<Int> by lazy {
         MutableLiveData<Int>(DEFAULT_PAGE)
     }
 
@@ -39,8 +43,14 @@ class HomeViewModel : ViewModel() {
 
     fun fetchMovies() {
         viewModelScope.launch {
-            movies.value = repository.getMovies(query = query.value!!, page = currentPage.value!!)
+            currentPage.value?.let {
+                fetchMovies.value =
+                    repository.getMovies(query = DEFAULT_QUERY, page = it)
+            }
         }
+    }
 
+    fun resetState() {
+        currentPage.value = DEFAULT_PAGE
     }
 }

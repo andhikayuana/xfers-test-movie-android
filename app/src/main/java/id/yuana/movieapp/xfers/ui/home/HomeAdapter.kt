@@ -17,8 +17,27 @@ class HomeAdapter(private val onClickItemMovie: (movie: Movie) -> Unit) :
 
     private val data: MutableList<Movie> = mutableListOf()
 
-    fun addOrUpdate(data: List<Movie>) {
-        this.data.addAll(data.toMutableList())
+    fun add(item: Movie) {
+        data.add(item)
+        notifyItemInserted(data.size - 1)
+    }
+
+    fun addOrUpdate(item: Movie, notifyChange: Boolean = true) {
+        val i = data.indexOf(item)
+        if (i >= 0) {
+            data[i] = item
+            if (notifyChange) {
+                notifyItemChanged(i)
+            }
+        } else {
+            add(item)
+        }
+    }
+
+    fun addOrUpdate(items: List<Movie>) {
+        for (item in items) {
+            addOrUpdate(item)
+        }
         notifyDataSetChanged()
     }
 
@@ -53,6 +72,7 @@ class HomeAdapter(private val onClickItemMovie: (movie: Movie) -> Unit) :
                 ivPoster.load(movie.getPosterUrl()) {
                     crossfade(true)
                     placeholder(R.drawable.bg_splash)
+                    error(R.drawable.bg_splash)
                 }
                 cardItemMovie.setOnClickListener {
                     onClickItemMovie(movie)

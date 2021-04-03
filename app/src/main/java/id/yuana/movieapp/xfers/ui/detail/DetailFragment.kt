@@ -51,15 +51,18 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         ivPoster.load(movie.getPosterUrl()) {
             crossfade(true)
             placeholder(R.drawable.bg_splash)
+            error(R.drawable.bg_splash)
         }
         ivPosterBlur.load(movie.getPosterUrl()) {
             crossfade(true)
             placeholder(R.drawable.bg_splash)
+            error(R.drawable.bg_splash)
             transformations(BlurTransformation(requireContext()))
         }
         ivBackdrop.load(movie.getBackdropUrl()) {
             crossfade(true)
             placeholder(R.drawable.bg_splash)
+            error(R.drawable.bg_splash)
         }
         tvRating.text = getString(R.string.label_rating, movie.vote_average.toString())
     }

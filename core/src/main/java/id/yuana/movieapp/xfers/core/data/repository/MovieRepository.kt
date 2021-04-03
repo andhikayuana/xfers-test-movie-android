@@ -1,6 +1,6 @@
 package id.yuana.movieapp.xfers.core.data.repository
 
-import id.yuana.movieapp.xfers.core.data.model.Movie
+import id.yuana.movieapp.xfers.core.data.model.GetMoviesResponse
 import id.yuana.movieapp.xfers.core.data.model.Resource
 
 /**
@@ -8,5 +8,5 @@ import id.yuana.movieapp.xfers.core.data.model.Resource
  */
 interface MovieRepository {
 
-    suspend fun getMovies(query: String, page: Int): Resource<List<Movie>>
+    suspend fun getMovies(query: String, page: Int): Resource<GetMoviesResponse>
 }

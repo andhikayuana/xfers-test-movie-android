@@ -33,7 +33,15 @@ data class Movie(
 
     @SuppressLint("SimpleDateFormat")
     fun getReleaseOn(): String {
-        val date = SimpleDateFormat("yyyy-MM-dd").parse(release_date)
-        return SimpleDateFormat("MMM dd, yyyy").format(date)
+        return try {
+            val date = SimpleDateFormat("yyyy-MM-dd").parse(release_date)
+            SimpleDateFormat("MMM dd, yyyy").format(date)
+        } catch (e: Exception) {
+            "unknown"
+        }
+    }
+
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
     }
 }
