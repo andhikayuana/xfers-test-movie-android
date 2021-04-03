@@ -97,7 +97,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     swipeRefresh.isRefreshing = false
                     viewModel.resetState()
                     viewModel.currentPage.value?.let {
-                        scrollListener.currentPage = it
+                        scrollListener.currentPage = it - 1
                     }
                 }
                 Status.LOADING -> {

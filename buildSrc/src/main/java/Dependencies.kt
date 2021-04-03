@@ -37,6 +37,7 @@ object Deps {
         "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"
     const val coil = "io.coil-kt:coil:${Versions.coil}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+    const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
 
 
     const val junit = "junit:junit:${Versions.junit}"

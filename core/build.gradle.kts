@@ -44,6 +44,7 @@ dependencies {
     implementation(Deps.retrofit)
     implementation(Deps.retrofitGson)
     implementation(Deps.gson)
+    implementation(Deps.okHttpLogging)
 
 
     testImplementation(Deps.junit)

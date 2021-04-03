@@ -1,6 +1,5 @@
 package id.yuana.movieapp.xfers.core.data.repository
 
-import android.util.Log
 import id.yuana.movieapp.xfers.core.data.model.GetMoviesResponse
 import id.yuana.movieapp.xfers.core.data.model.Resource
 import id.yuana.movieapp.xfers.core.data.remote.MovieService
@@ -23,7 +22,6 @@ class MovieRepositoryImpl(private val api: MovieService, private val apiKey: Str
                     query = query,
                     page = page
                 )
-                Log.d("YUANA", response.toString())
                 Resource.success(
                     data = response
                 )
