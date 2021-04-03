@@ -6,6 +6,9 @@ import id.yuana.movieapp.xfers.core.data.remote.MovieService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ * @author andhikayuana
+ */
 class MovieRepositoryImpl(private val api: MovieService, private val apiKey: String) :
     MovieRepository {
 

@@ -44,8 +44,12 @@ class HomeAdapter(private val onClickItemMovie: (movie: Movie) -> Unit) :
         fun bind(movie: Movie) {
             itemView.apply {
                 tvTitle.text = movie.title
-                tvReleaseOn.text = movie.getReleaseOn()
+                tvReleaseOn.text =
+                    resources.getString(R.string.label_release_on, movie.getReleaseOn())
                 tvOverview.text = movie.overview
+                ivPoster.apply {
+                    transitionName = movie.getPosterUrl()
+                }
                 ivPoster.load(movie.getPosterUrl()) {
                     crossfade(true)
                     placeholder(R.drawable.bg_splash)

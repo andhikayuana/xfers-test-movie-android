@@ -3,6 +3,9 @@ package id.yuana.movieapp.xfers
 import android.app.Application
 import id.yuana.movieapp.xfers.core.MovieCore
 
+/**
+ * @author andhikayuana
+ */
 class App : Application() {
 
     override fun onCreate() {

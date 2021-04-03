@@ -4,6 +4,9 @@ import id.yuana.movieapp.xfers.core.data.remote.MovieApi
 import id.yuana.movieapp.xfers.core.data.remote.MovieService
 import id.yuana.movieapp.xfers.core.data.repository.MovieRepositoryImpl
 
+/**
+ * @author andhikayuana
+ */
 class MovieComponent @JvmOverloads constructor(
     private val baseUrl: String,
     private val apiKey: String

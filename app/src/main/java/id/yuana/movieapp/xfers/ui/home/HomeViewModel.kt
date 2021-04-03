@@ -9,7 +9,15 @@ import id.yuana.movieapp.xfers.core.data.model.Resource
 import id.yuana.movieapp.xfers.core.data.repository.MovieRepositoryImpl
 import kotlinx.coroutines.launch
 
+/**
+ * @author andhikayuana
+ */
 class HomeViewModel : ViewModel() {
+
+    companion object {
+        const val DEFAULT_QUERY: String = "superman"
+        const val DEFAULT_PAGE: Int = 1
+    }
 
     private val repository: MovieRepositoryImpl = MovieCore.instance.component.repository
 
@@ -18,11 +26,11 @@ class HomeViewModel : ViewModel() {
     }
 
     val query: MutableLiveData<String> by lazy {
-        MutableLiveData<String>("superman")
+        MutableLiveData<String>(DEFAULT_QUERY)
     }
 
     val currentPage: MutableLiveData<Int> by lazy {
-        MutableLiveData<Int>(1)
+        MutableLiveData<Int>(DEFAULT_PAGE)
     }
 
     init {

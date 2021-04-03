@@ -6,7 +6,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-
+/**
+ * @author andhikayuana
+ */
 interface MovieService {
 
     @GET("/3/search/movie")
