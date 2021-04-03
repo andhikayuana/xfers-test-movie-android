@@ -12,7 +12,6 @@ import kotlinx.coroutines.withContext
 class MovieRepositoryImpl(private val api: MovieService, private val apiKey: String) :
     MovieRepository {
 
-    //TODO perhaps can change to response model
     override suspend fun getMovies(query: String, page: Int): Resource<GetMoviesResponse> {
         return withContext(Dispatchers.IO) {
             Resource.loading(data = null)

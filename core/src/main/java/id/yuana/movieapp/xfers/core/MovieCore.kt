@@ -1,9 +1,11 @@
 package id.yuana.movieapp.xfers.core
 
+import androidx.annotation.VisibleForTesting
+
 /**
  * @author andhikayuana
  */
-class MovieCore private constructor(val component: MovieComponent) {
+open class MovieCore(val component: MovieComponent) {
 
     companion object {
 
@@ -33,6 +35,12 @@ class MovieCore private constructor(val component: MovieComponent) {
                 return INSTANCE!!
             }
 
+    }
+
+
+    @VisibleForTesting
+    fun destroy() {
+        INSTANCE = null
     }
 
 

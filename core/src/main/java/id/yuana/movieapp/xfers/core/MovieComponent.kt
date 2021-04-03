@@ -7,7 +7,7 @@ import id.yuana.movieapp.xfers.core.data.repository.MovieRepositoryImpl
 /**
  * @author andhikayuana
  */
-class MovieComponent @JvmOverloads constructor(
+open class MovieComponent @JvmOverloads constructor(
     private val baseUrl: String,
     private val apiKey: String
 ) {
