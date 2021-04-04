@@ -43,7 +43,11 @@ object Deps {
     const val junit = "junit:junit:${Versions.junit}"
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-
+    const val mockWebserer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
+    const val googleTruth = "com.google.truth:truth:${Versions.googleTruth}"
+    const val mockito = "org.mockito:mockito-core:${Versions.mockito}"
+    const val androidCoreTest = "androidx.arch.core:core-testing:${Versions.androidCoreTest}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
 }
 
 object Versions {
@@ -72,5 +76,9 @@ object Versions {
     const val junit = "4.13.2"
     const val junitExt = "1.1.2"
     const val espresso = "3.3.0"
+    const val googleTruth = "1.1.2"
+    const val mockito = "3.8.0"
+    const val androidCoreTest = "2.1.0"
+    const val coroutinesTest = "1.3.4"
 
 }

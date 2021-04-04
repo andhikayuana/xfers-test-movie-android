@@ -1,31 +1,25 @@
 package id.yuana.movieapp.xfers.core
 
-import junit.framework.TestCase
-import org.junit.Before
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class MovieCoreTest : TestCase() {
+class MovieCoreTest {
 
     companion object {
         const val FAKE_BASE_URL = ""
         const val FAKE_API_KEY = ""
     }
 
-    @Before
-    public override fun setUp() {
-        super.setUp()
-    }
-
     @Test(expected = RuntimeException::class)
-    fun testGivenNotInitMovieCoreThenShouldError() {
+    fun `test given not init MovieCore then should error`() {
         MovieCore.instance
     }
 
     @Test
-    fun testGivenValidComponentThenShouldSuccess() {
+    fun `test given valid component then should success`() {
 
         MovieCore.init(FAKE_BASE_URL, FAKE_API_KEY)
 

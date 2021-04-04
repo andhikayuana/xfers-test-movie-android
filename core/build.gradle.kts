@@ -48,8 +48,11 @@ dependencies {
 
 
     testImplementation(Deps.junit)
-    testImplementation("org.mockito.kotlin:mockito-kotlin:3.1.0")
-    testImplementation("com.natpryce:hamkrest:1.8.0.1")
+    testImplementation(Deps.mockWebserer)
+    testImplementation(Deps.googleTruth)
+    testImplementation(Deps.mockito)
+    testImplementation(Deps.androidCoreTest)
+    testImplementation(Deps.coroutinesTest)
 
     androidTestImplementation(Deps.junitExt)
     androidTestImplementation(Deps.espresso)

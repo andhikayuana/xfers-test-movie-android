@@ -7,10 +7,10 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.BDDMockito.given
 import org.mockito.Mockito
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
-import org.mockito.kotlin.given
-import org.mockito.kotlin.verify
 
 @RunWith(MockitoJUnitRunner::class)
 class MovieRepositoryImplTest : TestCase() {
@@ -31,7 +31,7 @@ class MovieRepositoryImplTest : TestCase() {
     }
 
     @Test
-    fun testGivenValidApiKeyThenShouldSuccess() {
+    fun `test given valid apiKey then should success`() {
         runBlocking {
 
             val response = GetMoviesResponse(1, listOf(), 1, 1)
@@ -46,7 +46,7 @@ class MovieRepositoryImplTest : TestCase() {
 
     @Test
     @Throws(Exception::class)
-    fun testGivenInvalidApiKeyThenShouldError() {
+        fun `test given invalid ApiKey then should error`() {
         runBlocking {
             val response = GetMoviesResponse(1, listOf(), 1, 1)
 
