@@ -46,8 +46,10 @@ object Deps {
     const val mockWebserer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
     const val googleTruth = "com.google.truth:truth:${Versions.googleTruth}"
     const val mockito = "org.mockito:mockito-core:${Versions.mockito}"
+    const val mockitoInline = "org.mockito:mockito-inline:${Versions.mockito}"
     const val androidCoreTest = "androidx.arch.core:core-testing:${Versions.androidCoreTest}"
-    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
+    const val coroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
 }
 
 object Versions {

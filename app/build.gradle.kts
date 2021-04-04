@@ -67,8 +67,14 @@ dependencies {
     implementation(Deps.okHttp)
     implementation(project(":core"))
 
-
     testImplementation(Deps.junit)
+    testImplementation(Deps.mockWebserer)
+    testImplementation(Deps.googleTruth)
+    testImplementation(Deps.mockito)
+    testImplementation(Deps.mockitoInline)
+    testImplementation(Deps.androidCoreTest)
+    testImplementation(Deps.coroutinesTest)
+
     androidTestImplementation(Deps.junitExt)
     androidTestImplementation(Deps.espresso)
 }

@@ -3,7 +3,6 @@ package id.yuana.movieapp.xfers.ui.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import id.yuana.movieapp.xfers.core.MovieCore
 import id.yuana.movieapp.xfers.core.data.model.GetMoviesResponse
 import id.yuana.movieapp.xfers.core.data.model.Movie
 import id.yuana.movieapp.xfers.core.data.model.Resource
@@ -13,14 +12,14 @@ import kotlinx.coroutines.launch
 /**
  * @author andhikayuana
  */
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val repository: MovieRepositoryImpl) : ViewModel() {
 
     companion object {
         const val DEFAULT_QUERY: String = "superman"
         const val DEFAULT_PAGE: Int = 1
     }
 
-    private val repository: MovieRepositoryImpl = MovieCore.instance.component.repository
+//    private val repository: MovieRepositoryImpl = MovieCore.instance.component.repository
 
     val fetchMovies: MutableLiveData<Resource<GetMoviesResponse>> by lazy {
         MutableLiveData<Resource<GetMoviesResponse>>(Resource.loading(data = null))

@@ -4,16 +4,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import id.yuana.movieapp.xfers.R
+import id.yuana.movieapp.xfers.core.MovieCore
 import id.yuana.movieapp.xfers.core.data.model.Status
 import id.yuana.movieapp.xfers.listener.EndlessScrollListener
 import id.yuana.movieapp.xfers.ui.detail.DetailFragment
+import id.yuana.movieapp.xfers.util.MovieViewModelFactory
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.item_movie.*
 
@@ -22,7 +24,11 @@ import kotlinx.android.synthetic.main.item_movie.*
  */
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private val viewModel: HomeViewModel by activityViewModels()
+    private val viewModel: HomeViewModel by lazy {
+        ViewModelProvider(this, MovieViewModelFactory.create {
+            HomeViewModel(repository = MovieCore.instance.component.repository)
+        }).get(HomeViewModel::class.java)
+    }
     private lateinit var scrollListener: EndlessScrollListener
     private lateinit var homeAdapter: HomeAdapter
 
