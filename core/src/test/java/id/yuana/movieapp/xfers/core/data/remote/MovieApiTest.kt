@@ -1,6 +1,7 @@
 package id.yuana.movieapp.xfers.core.data.remote
 
 import id.yuana.movieapp.xfers.core.util.MockResponseFileReader
+import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
@@ -56,6 +57,8 @@ class MovieApiTest {
         }
 
         assertNotNull(actualResponse)
+        assertEquals(1, actualResponse.page)
+        assertEquals(20, actualResponse.results.size)
     }
 
     @Test(expected = RuntimeException::class)
